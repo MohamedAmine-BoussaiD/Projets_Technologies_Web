@@ -7,34 +7,27 @@ that live under the backend service tree and are imported by qcm_service.py.
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
 from typing import Optional
+
+root = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(root))
 
 # Import from the top-level agents package (monorepo layout)
 # The agents/ folder is at repo root; the backend is run from repo root too.
-try:
-    from agents.qcm_agents import (
-        QCMState,
-        generate_qcm,
-        correct_qcm,
-        evaluate_grade,
-    )
-    from agents.orchestrator import (
-        generate_qcm_workflow,
-        submit_qcm_answers_workflow,
-        get_workflow_graph_metadata,
-    )
-    from agents.rag import get_context
-except ImportError:
-    # Fallback: installed as package or different path layout
-    from app.services.ai.qcm_agents_local import (  # type: ignore
-        generate_qcm,
-        correct_qcm,
-        evaluate_grade,
-        generate_qcm_workflow,
-        submit_qcm_answers_workflow,
-        get_workflow_graph_metadata,
-        get_context,
-    )
+from agents.qcm_agents import (
+    QCMState,
+    generate_qcm,
+    correct_qcm,
+    evaluate_grade,
+)
+from agents.orchestrator import (
+    generate_qcm_workflow,
+    submit_qcm_answers_workflow,
+    get_workflow_graph_metadata,
+)
+from agents.rag import get_context
 
 
 def run_generate_qcm(
