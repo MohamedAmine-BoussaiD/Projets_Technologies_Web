@@ -25,4 +25,11 @@ uploads/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Data directories
 data/
+
+# ChromaDB
+chroma_db/
+**/chroma_db/
+*.sqlite3

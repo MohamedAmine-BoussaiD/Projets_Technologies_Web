@@ -1,0 +1,7 @@
+# ChromaDB
+chroma_db/
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
