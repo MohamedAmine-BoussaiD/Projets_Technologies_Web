@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+from pathlib import Path
 from typing import Optional, TypedDict
 
 from dotenv import load_dotenv
@@ -22,7 +23,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langgraph.graph import END, StateGraph
 
-load_dotenv()
+# Load .env from backend directory
+_env_path = Path(__file__).resolve().parent.parent / "backend" / ".env"
+load_dotenv(_env_path)
 
 # ── Config ────────────────────────────────────────────────────────────────────
 _MODEL      = "llama-3.3-70b-versatile"
