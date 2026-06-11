@@ -51,7 +51,7 @@ def session_to_response(
         exercise_count=exercise_count,
         progress_score=session.progress_score,
         exercises_completed=session.exercises_completed or 0,
-        level_score=session.level_score
+        level_score=session.level_score or 0
     )
 
 

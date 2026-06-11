@@ -35,7 +35,7 @@ class SessionResponse(BaseModel):
     # Per-session progress
     progress_score: Optional[float] = None  # None = no exercises completed
     exercises_completed: int = 0
-    level_score: float
+    level_score: float = 0
 
     class Config:
         from_attributes = True

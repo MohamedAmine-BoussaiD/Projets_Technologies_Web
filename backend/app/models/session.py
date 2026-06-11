@@ -19,7 +19,7 @@ class Session(Document):
     # Per-session progress tracking
     progress_score: Optional[float] = Field(default=None, ge=0.0, le=1.0)
     exercises_completed: int = Field(default=0)
-    level_score: Optional[float] = Field(default=None, ge=0.0, le=1.0)
+    level_score: Optional[float] = Field(default=0.0, ge=0.0, le=1.0)
 
     class Settings:
         name = "sessions"
